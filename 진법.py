@@ -37,3 +37,15 @@ print(a) #10진수로 출력한다  4*8 + 5
 a = 0xFF 
 print(a)
 
+#복합연산자 
+a = 5
+a = a + 1   
+print(a)
+a += 1 
+print(a)
+
+a -= 1 
+print(a)
+
+a *= 3 
+print(a)
