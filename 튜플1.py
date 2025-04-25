@@ -14,3 +14,45 @@ c = 9
 
 a,b,c = 5,7,9 #tuple활용 
 print(a,b,c)
+
+#함수-> 코드를 묶어놓은것, 함수는 값을 하나만 반환해야 한다. 
+#파이썬의 경우에는 우리가 여러개를 반환하면 이걸 알아서 tuple로 묶어서 하나를 보낸다.  
+def myfunc1():
+    return 3,4
+a = myfunc1() 
+print( type (a) )
+
+b,c = a 
+print(b,c)
+
+a = 5 
+b = 7
+
+#두개의 변수값을 서로 exchange, swap
+c = a 
+a = b 
+b = c 
+print( "A=",a, "B=",b)
+
+b, a = a, b   #tuple를 써서 값을 swap 할 수 있다
+print( "A=",a, "B=",b)
+
+#튜플은 read only이다. 삭제도 업데이트도 안된다. 
+a = (1,2,3,4,5,6,7,8,9,10)
+print( a[0] )
+print( a[1] )
+print( a[2] )
+
+#del a[2] #삭제안됨 
+#a[0] = 11
+ 
+print( a[:5])
+print( a[2:5])
+print( a[::-1])
+
+b = a + a
+print(b)
+
+b = a * 3
+print(b)
+
