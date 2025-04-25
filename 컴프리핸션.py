@@ -59,6 +59,9 @@ wordList3 = [w for w in wordList if len(w)>=5]
 print( wordList3 )
 
 #문제1. 단어중에 java 라는 단어가 있는것만 추출하기 
+wordList3 = [w for w in wordList if 'java' in w]
+print( wordList3 )
 
 #문제2. 단어중에 길이가 5개보다 짧은단어만 추출하기 
-
+wordList3 = [w for w in wordList if len(w)<5]
+print( wordList3 )
