@@ -44,8 +44,29 @@ print()
 
 #키보드로부터 문장을 입력받아서  각 문자의 개수 
 #  A  ===> 5       대소문자 구분하지 않고 
-#  B  ===> 0 
+#  B  ===> 0   조건식 and 조건식   조건식 or 조건식 
 
 count =[0,0,0,0,0, 0,0,0,0,0,
         0,0,0,0,0, 0,0,0,0,0,
         0,0,0,0,0,0]
+
+sentence = input("문장 : ")
+for i in sentence: #한글자씩 가져온다
+    if ord(i)>=ord('A') and ord(i)<=ord('Z'):
+        count[ord(i)-ord('A')]+=1 
+    elif ord(i)>=ord('a') and ord(i)<=ord('z'):
+        count[ord(i)-ord('a')]+=1
+    
+for i in range(0,len(count)):
+    print( chr(i+ord('A')), "===>" , count[i])
+print() 
+#dict 타입   'A' 존재안하면 하나 만들고 1 존재하면 + 1
+result={}  #result=dict() 
+for i in sentence.lower():
+    if i in result.keys():
+        result[i]+=1
+    else:
+        result[i]=1
+
+for item in result.items():
+    print(item)
