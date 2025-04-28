@@ -31,3 +31,47 @@ for i in range(1, 11):
             print(j, end= " = ")
         sum += j 
     print (sum)
+
+
+for i in range(0, 10):
+    for j in range(0, i):
+        print("*", end="")
+    print()
+
+for i in range(0, 10):
+    print("*" * i)
+   
+
+"""
+         *                 별 1    공백 : 3     라인   1        별의개수: 2*라인수 -1  공백 : 공백+라인=4 
+        ***                별 3    공백 : 2           2                                   4-라인수
+       *****               별 5    공백 : 1           3
+      *******              별 7    공백 : 0           4
+       *****               별 5    공백 : 1    라인   1         (LINES-공백)*2 + 1  = 5            
+        ***                별 3    공백 : 2          2         (LINES-2)*2 + 1   = 3    
+         *                 별 1    공백 : 3          3         (LINES-3)*2 + 1   = 1
+    greedy (욕심쟁이)
+    dfs (깊이우선탐색, stack)
+    bfs (너비우선탐색, 큐구조)
+    flood fill(dfs  나 bfs 일종종)
+"""
+LINES = 7
+for i in range(1, LINES+1):
+    print(" " * (LINES-i), end="")
+    print("*" * (2*i-1))
+
+for i in range(1, LINES+1):
+    for j in range(0, (LINES-i)):
+        print(" ", end="")
+    for j in range(0, 2*i-1):
+        print("*", end="")
+    print()
+
+LINES = LINES-1 
+for i in range(0, LINES+1):
+    for j in range(0, i):
+        print(" ",end="")
+    for j in range(0, (LINES-i)*2 + 1):
+        print("*", end="")
+    print()
+
