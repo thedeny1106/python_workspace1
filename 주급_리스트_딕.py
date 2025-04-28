@@ -1,4 +1,4 @@
-worker={} #한사람분 저장하기 
+ #한사람분 저장하기 
 personList=[
     {"name":"홍길동", "work_time":40, "per_pay":10000},
     {"name":"임꺽정", "work_time":30, "per_pay":20000},
@@ -6,6 +6,7 @@ personList=[
 ]
 
 for i in range(0,2):
+    worker={}
     worker["name"] = input("이름 : ")
     worker["work_time"] = int(input("근무시간 : "))
     worker['per_pay'] = int(input("시간당 급여액 : "))
