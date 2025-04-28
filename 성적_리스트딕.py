@@ -44,3 +44,7 @@ for score in scoreList:
     print( f"{score["avg"]}", end="\t")
     print( f"{score["grade"]}")
     
+
+#지방 노동청에 신고가 들어옴 회사가 성별간 임금차별  성별과 연봉이 들어온다.
+#직원전체 10명이고, 성별하고 연봉입력받아서 남자 평균 , 여자 평균 구하기 
+ 
