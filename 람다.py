@@ -40,3 +40,26 @@ for i in filter( isEven, a):
 
 for i in filter( lambda x:x%2==0, a):
     print(i)
+
+personList = [
+    {"name":'홍길동',  "age":34, "phone":"010-0000-0001"},
+    {"name":'강감찬',  "age":70, "phone":"010-0000-0004"},
+    {"name":'서희',    "age":54, "phone":"010-0000-0003"},
+    {"name":'윤관',    "age":39, "phone":"010-0000-0002"},
+    {"name":'김종서',  "age":38, "phone":"010-0000-0005"},
+    {"name":'이순신',  "age":44, "phone":"010-0000-0006"},
+    {"name":'곽재우',  "age":62, "phone":"010-0000-0009"}
+]
+
+#이름이 서희인 사람의 자료를 갖고 오고자 한다 
+#filter personList 를 가져 갔으니까 람다의 매개변수도 personList안의 dict객체 
+#반환값도 dict객체임 
+keyname = '서희'
+for person in filter(lambda e : e["name"]==keyname  , personList):
+    print(f"{person["name"]} {person["age"]} {person["phone"]}")
+
+#filter 를 감싸고 있는 list가 filter를 동작을 시키고 결과들을 list로 만들어서 반환한다 
+findList = ( list( filter(lambda e:e["name"]==keyname, personList)) )
+print(findList) 
+
+#40세 이상만 
