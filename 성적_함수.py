@@ -1,0 +1,62 @@
+scoreList = [] #모든 함수가 공유해야할 메모리이다. 
+#함수내에 선언된 변수는 함수에서만 존재한다. 
+#함수외부에 선언된 변수는 함수들이 같이 사용할 수 있다. 전역변수 
+
+def output():
+    for s in scoreList: #scoreList로 부터 하나씩 s라는 변수에 전달된다. 
+        print(f"{s["name"]}", end="\t")
+        print(f"{s["kor"]}", end="\t")
+        print(f"{s["eng"]}", end="\t")
+        print(f"{s["mat"]}", end="\t")
+        print(f"{s["total"]}", end="\t")
+        print(f"{s["avg"]:.2f}", end="\t")
+        print(f"{s["grade"]}")  
+
+def append():
+    #각 과목별로 0~100점만 입력이 되도록, 숫자만 입력되게 하고 싶다. 
+    s = {}
+    s["name"]=input("이름 : ")
+    #숫자가 들어와야하고, 0~100 사이어야 한다. 
+    s["kor"] = getScore("국어", 100)   
+
+#숫자만 입력되게 : input으로 받는 모든 데이터는 String이다. 
+#ord함수를 통해서 숫자인지 아닌지 판단가능하다. 
+#ord('0'), ord('9')  문자열 받아서 한글자씩 '0' ~'9' 사이에 있으면 글자중에 하나라도 
+#저 사이에 존재하지 않으면 숫자가 아님  
+#함수는 기능 하나만, 하나의 기능에 집중하라
+#함수도 입출력이다. 매개변수가 입력이고 반환값이 출력이다. 
+#입력과 출력에 대한 정의가 먼저 진행되어야 한다. 
+#에러처리는  먼저 처리하자 
+"""
+def myfunc():
+    if error1:
+        return -1
+    if error2:
+        return -2
+    
+    .........
+        
+"""
+
+def isDigit(s):
+    for i in range(0, len(s)):
+        if ord(s[i])<ord('0') or ord(s[i])>ord('9'):
+            return False 
+        
+    return True #끝까지 다 완수했어 다 숫자임   
+
+def getNumber(subject):
+    s = input(f"{subject} : ")
+    while( isDigit(s)==False):
+        print("숫자만 입력하세요")
+        s = input(f"{subject} : ")
+    return int(s) 
+
+def getScore(subject="국어", limit=100):
+    n = getNumber(subject)
+    while( n<0 or n >limit):
+        print(f"0~{limit} 사이의 값을 입력하세요")
+        n = getNumber(subject)  #while문 마지막에 조건식을 벗어나는 수식이 와야 한다 
+    return n 
+
+#n = getNumber()

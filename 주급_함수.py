@@ -1,3 +1,6 @@
+#문법적으로 javascript 에 JSON 데이터 구조하고 동일 
+#MySQL 속도가 너무 느려서 빅데이터 몽고디비-JSON형태로 데이터 저장을 한다 
+#판다스 -> 데이터프레임 : dict -> dataframe형태로 바꾸기 쉽다 
 workerList = [
     {"name":"홍길동", "work_time":30, "per_pay":20000},
     {"name":"김길동", "work_time":20, "per_pay":30000},
