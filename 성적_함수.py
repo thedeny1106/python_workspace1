@@ -17,7 +17,32 @@ def append():
     s = {}
     s["name"]=input("이름 : ")
     #숫자가 들어와야하고, 0~100 사이어야 한다. 
-    s["kor"] = getScore("국어", 100)   
+    s["kor"] = getScore("국어",100)
+    s["eng"] = getScore("영어") 
+    s["mat"] = getScore("수학")    
+    s["total"] = getTotal(s)
+    s["avg"] = getAvg(s)
+    s["grade"] = getGrade(s)
+    
+def getTotal(s):
+    return s["kor"]+s["eng"]+s["mat"]
+    
+def getAvg(s):
+    return s["total"]/3
+
+def getGrade(s):
+    if s["avg"]>=90:
+        return "수"
+    elif s["avg"]>=80:
+        return "우"
+    elif s["avg"]>=70:
+        return "미"
+    elif s["avg"]>=60:
+        return "양"
+    return "가"
+    
+    
+    
 
 #숫자만 입력되게 : input으로 받는 모든 데이터는 String이다. 
 #ord함수를 통해서 숫자인지 아닌지 판단가능하다. 
@@ -60,3 +85,21 @@ def getScore(subject="국어", limit=100):
     return n 
 
 #n = getNumber()
+
+def start():
+    while True:
+        print("1.추가")
+        print("2.출력")
+        print("0.종료")
+        sel = input("선택 : ")
+        if sel=="1":
+            append()
+        elif sel=="2":
+            output()
+        elif sel=="0":
+            print("프로그램을 종료합니다.")
+            return
+        else:
+            print("잘못 선택하셨습니다")
+           
+start()
