@@ -23,6 +23,7 @@ def append():
     s["total"] = getTotal(s)
     s["avg"] = getAvg(s)
     s["grade"] = getGrade(s)
+    scoreList.append(s)
     
 def getTotal(s):
     return s["kor"]+s["eng"]+s["mat"]
