@@ -127,6 +127,27 @@ print(list2)
 #문제4. sorted 함수를 사용하여 알파벳 순으로 내림차순으로 정렬하여 출력하기 
 #문제5. 단어중에 o가 포함되는 단어가 모두 몇개인지 카운트하기 (힌트,filter를 사용)        
 
+words = ["assembly", "java", "rain", "notebook", "north", 
+            "south", "hospital", "programming", "house", "hour"]
+
+#x에 전달되는건 string타입이다. len(x) 문자열 길이 
+#파이썬의 람다는 한줄만 가능, 다른언어는 2줄이상도 많음 
+#인덴테이션(들여쓰기)를 통해 블럭 코드의 시작 끝을 알수 있는 한계점 { } 
+resultList = list( filter(lambda x : len(x)>= 6, words))
+print( resultList )
+
+resultList = list( map(lambda x : x.upper() , words))
+print( resultList )
+
+
+
+
+
+
+
+
+
+
 
 
 
