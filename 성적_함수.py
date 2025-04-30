@@ -20,7 +20,7 @@ def init():
         s["grade"] = getGrade(s)
             
 
-def output():
+def output(scoreList):
     for s in scoreList: #scoreList로 부터 하나씩 s라는 변수에 전달된다. 
         print(f"{s["name"]}", end="\t")
         print(f"{s["kor"]}", end="\t")
@@ -103,22 +103,39 @@ def getScore(subject="국어", limit=100):
         n = getNumber(subject)  #while문 마지막에 조건식을 벗어나는 수식이 와야 한다 
     return n 
 
-#n = getNumber()
+def search():
+    key = input("찾을 이름은 ? ")
+    #filter 에서 두번째 파라미터 iterable(반복적인) 데이터 - list류
+    #filter 안에서는 scoreList로부터 한개씩 객체를 갖고 온다. 
+    # dict 타입 
+    resultList = list(filter(lambda x:x["name"]==key, scoreList))
+    #반환값이 list타입이고 list안에 dict 타입이 있음 
+    #resultList, scoreList가 동일한 구조 - 함수 하나로 둘다 
+    #전역변수로 scoreList가 이미 있다. 
+    #함수안에서 매개변수로 전역변수와 이름이 똑같으면 외부  전역변수를 가려버린다
+    #내눈앞에 보이는게 우선 
+    output(resultList)
+
+def menuDisplay():
+    print("1.추가")
+    print("2.출력")
+    print("3.검색")
+    print("4.수정")
+    print("5.삭제")
 
 def start():
     init() #데이터 초기화 
 
     while True:
-        print("1.추가")
-        print("2.출력")
-        print("3.검색")
-
+        menuDisplay()    
         print("0.종료")
         sel = input("선택 : ")
         if sel=="1":
             append()
         elif sel=="2":
-            output()
+            output(scoreList)
+        elif sel=="3":
+            search()
         elif sel=="0":
             print("프로그램을 종료합니다.")
             return
@@ -126,3 +143,5 @@ def start():
             print("잘못 선택하셨습니다")
            
 start()
+
+#filter - 검색용 함수, map-연산용함수, sort-정렬 
