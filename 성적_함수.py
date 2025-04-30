@@ -1,6 +1,24 @@
+import random #외부 모듈(파이썬의 경우에는 파일)을 
+            #이 메모리로 가져와서 결합해라 
+
 scoreList = [] #모든 함수가 공유해야할 메모리이다. 
 #함수내에 선언된 변수는 함수에서만 존재한다. 
 #함수외부에 선언된 변수는 함수들이 같이 사용할 수 있다. 전역변수 
+
+#맨처음에 기본 데이터 넣어놓고  시작
+def init():
+    names=["홍길동", "홍경래", "장길산", "강감찬", "서희", "윤관",
+           "감강찬", "김연아", "안세영", "조승연"]
+    for i in range(0, len(names)):
+        scoreList.append({"name":names[i],
+        "kor":random.randint(40, 101), 
+        "eng":random.randint(40, 101), 
+        "mat":random.randint(40, 101)})
+    for s in scoreList:
+        s["total"] = getTotal(s)
+        s["avg"] = getAvg(s)
+        s["grade"] = getGrade(s)
+            
 
 def output():
     for s in scoreList: #scoreList로 부터 하나씩 s라는 변수에 전달된다. 
@@ -24,7 +42,7 @@ def append():
     s["avg"] = getAvg(s)
     s["grade"] = getGrade(s)
     scoreList.append(s)
-    
+
 def getTotal(s):
     return s["kor"]+s["eng"]+s["mat"]
     
@@ -88,9 +106,13 @@ def getScore(subject="국어", limit=100):
 #n = getNumber()
 
 def start():
+    init() #데이터 초기화 
+
     while True:
         print("1.추가")
         print("2.출력")
+        print("3.검색")
+
         print("0.종료")
         sel = input("선택 : ")
         if sel=="1":

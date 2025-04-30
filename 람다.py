@@ -139,6 +139,25 @@ print( resultList )
 resultList = list( map(lambda x : x.upper() , words))
 print( resultList )
 
+sortedList1 = sorted(words, key=lambda x: len(x))
+print(sortedList1)
+
+sortedList1 = sorted(words, reverse=True)
+print(sortedList1)
+
+resultList = list(filter(lambda w:"o" in w, words))
+print( len(resultList))
+
+#zip 함수 => 파이썬만 제공한다.  리스트가 2개이상 있는데 이걸 조합해서 새로운 형태로 
+#["a", "b", "c", "d", "e"]
+#[1,2,3,4,5]                  
+#[("a", 1), ("a", 2) ....]
+
+a = ["a", "b", "c", "d", "e"]
+b = [1,2,3,4,5]
+for item in zip(a, b, a):
+    print(item) 
+
 
 
 
