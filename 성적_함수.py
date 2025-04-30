@@ -11,9 +11,9 @@ def init():
            "감강찬", "김연아", "안세영", "조승연"]
     for i in range(0, len(names)):
         scoreList.append({"name":names[i],
-        "kor":random.randint(40, 101), 
-        "eng":random.randint(40, 101), 
-        "mat":random.randint(40, 101)})
+        "kor":random.randint(40, 100), 
+        "eng":random.randint(40, 100), 
+        "mat":random.randint(40, 100)})
     for s in scoreList:
         s["total"] = getTotal(s)
         s["avg"] = getAvg(s)
