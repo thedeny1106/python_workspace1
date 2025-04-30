@@ -44,3 +44,17 @@ def myfunc2(**d):
     print(d) 
 
 myfunc2(name="홍길동", age=23)
+#일반인자랑 tuple인자랑 dict인자를 셋다 쓰고 싶으면 순서가 있다 
+#일반인자 , tuple인자 , dict 인자
+
+#일반인자, tuple타입, dict타입 
+def profile(role, *skills, **details):
+    print("Role", role)
+    print("Skills", skills)
+    print("details", details)
+
+profile("programmer", "python", "react", "deeplearnin", 
+        yearpay=100000000, position="개발자" )
+
+    
+
