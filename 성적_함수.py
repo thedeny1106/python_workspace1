@@ -116,26 +116,50 @@ def search():
     #내눈앞에 보이는게 우선 
     output(resultList)
 
+
+def modify():
+    key = input("수정할 이름은 ? ")
+    #filter 에서 두번째 파라미터 iterable(반복적인) 데이터 - list류
+    #filter 안에서는 scoreList로부터 한개씩 객체를 갖고 온다. 
+    # dict 타입 
+    resultList = list(filter(lambda x:x["name"]==key, scoreList))
+    if len(resultList)==0:
+        print(f'{key} 를 찾을 수 없습니다')
+        return  #끝내라, 함수를 끝내라 
+
+    #두명이상 있을때의 처리를 해야 한다 
+    st = resultList[0]  
+    st["name"]=input("바꿀이름 : ")
+    st["kor"]=getScore("국어")
+    st["eng"]=getScore("영어")
+    st["mat"]=getScore("수학")
+    st["total"]=getTotal(st)
+    st["avg"]=getAvg(st)
+    st["grade"]=getGrade(st)
+    print("수정되었습니다")
+    
 def menuDisplay():
     print("1.추가")
     print("2.출력")
     print("3.검색")
     print("4.수정")
     print("5.삭제")
+    print("0.종료")
 
 def start():
     init() #데이터 초기화 
 
     while True:
-        menuDisplay()    
-        print("0.종료")
+        menuDisplay()     
         sel = input("선택 : ")
         if sel=="1":
-            append()
+            append()  #insert
         elif sel=="2":
             output(scoreList)
         elif sel=="3":
             search()
+        elif sel=="4":
+            modify() #update
         elif sel=="0":
             print("프로그램을 종료합니다.")
             return
