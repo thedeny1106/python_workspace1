@@ -89,6 +89,40 @@ print(pos)
 
       1 2 3 4 5  마지막 
 """
+def selectSort(dataList, key):
+    #0 ...1~n
+    #1 ...2~n
+    #2 ...1~n 
+    #n-1   n
+    #aList = dataList #얕은복사- 주소만 복사 aList와 dataList데이터는 
+    #같다
+    aList = [x for x in dataList] #컴프리헨션을 이용한 깊은 복사 
+    for i in range(0, len(aList)-1):
+        print(aList)
+        for j in range(i+1, len(aList)):
+            if key(aList[i])>key(aList[j]): #더 작은것이 앞에 있어야 한다
+                temp = aList[i]
+                aList[i] = aList[j]
+                aList[j]=temp 
+    return aList  #반환
+
+a = [5,1,2,4,3]
+b = selectSort(a, key= lambda x:x)
+print(a)
+print(b)
+
+a = [{"name":"A", "age":12},
+     {"name":"C", "age":11},
+     {"name":"E", "age":13},
+     {"name":"D", "age":14},
+     {"name":"B", "age":15} ]
+b = selectSort(a, key= lambda x:x["name"])
+print(a)
+print(b)
+
+
+
+
 
 
 
