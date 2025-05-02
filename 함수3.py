@@ -53,8 +53,14 @@ def profile(role, *skills, **details):
     print("Skills", skills)
     print("details", details)
 
-profile("programmer", "python", "react", "deeplearnin", 
+profile("programmer", "python", "react", "deeplearning", 
         yearpay=100000000, position="개발자" )
 
     
+#가위바위보 게임 
+#컴퓨터가 1,2,3중에 랜덤값 하나를 생각하고 있음 
+#사람이 1.가위 2.바위 3.보 임  입력받아서 컴퓨터승 사람승 무승부 
+#10번해서 승률  컴퓨터 3  사람 2   무승부 5
+
+
 
