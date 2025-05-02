@@ -34,6 +34,7 @@ def test():
         print("컴퓨터:", titles[computer], "사람:",titles[person], titles2[winner])
 
 def gameStart():
+    gameList.clear() #데이터만 삭제 
     #계속 반복 
     while True:
         computer = random.randint(1,3)
@@ -46,15 +47,40 @@ def gameStart():
         if again !="Y" and again!="y":
             return  
 
+def gameStatistic():
+    computer_win=0
+    person_win=0
+    equal_win=0
+    for game in gameList:
+        if game["winner"]=="1":
+            computer_win+=1 
+        elif game["winner"]=="2":
+            person_win+=1 
+        else:
+            equal_win+=1 
+
+    for game in gameList:
+        print(f"컴퓨터:{game["computer"]}", end="\t")
+        print(f"사람:{game["person"]}", end="\t")
+        print(f"승패:{game["winner"]}")
+    
+    print("컴퓨터 승 ", computer_win)
+    print("사람 승 ", person_win)
+    print("무승부 ", equal_win)
+    
+        
 #gameStart() #함수호출을 하자 
 def gameMain():
+    
     while True:
         print("1.게임시작")
         print("2.게임통계")
         print("3.게임종료")
         sel = input("선택 : ")
-        if sel=="1":
+        if sel=="1": 
             gameStart() 
+        elif sel=="2":
+            gameStatistic()
         elif sel=="3":
             print("게임을 종료합니다")
             return 
