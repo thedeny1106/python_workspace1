@@ -42,8 +42,21 @@ def gameStart():
         print("컴퓨터:", titles[computer], "사람:",titles[person], titles2[winner])
         gameList.append({"computer":computer, "person":person, 
                          "winner":winner})
-        again = input("게임을 계속 하시겠습니까?y/n")
+        again = input("게임을 계속 하시겠습니까?(y/n) ")
         if again !="Y" and again!="y":
             return  
 
-gameStart() #함수호출을 하자 
+#gameStart() #함수호출을 하자 
+def gameMain():
+    while True:
+        print("1.게임시작")
+        print("2.게임통계")
+        print("3.게임종료")
+        sel = input("선택 : ")
+        if sel=="1":
+            gameStart() 
+        elif sel=="3":
+            print("게임을 종료합니다")
+            return 
+        
+gameMain()
