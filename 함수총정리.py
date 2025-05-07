@@ -131,6 +131,90 @@ for i in myrange(1, 10):
 면적은 35입니다.
 3은   아랫변, 윗변, 높이 
 
+"""
+
+def circle():
+    r = int(input("반지름 :") )
+    s = r* r* 3.14
+    print(f"면적은 {s} 입니다")
+
+def rectangle():
+    width = int(input("가로 : "))
+    height = int(input("세로 : "))
+    s = width * height 
+    print(f"면적은 {s} 입니다")
+
+def sadari():
+    width = int(input("아랫변 : "))
+    width2 = int(input("윗변 : "))
+    height = int(input("높이 : "))
+    s = (width + width2)*height/2
+    print(f"면적은 {s} 입니다")
+
+def main1():
+    while True:
+        select = input("1.원의면적 2.사각형면적 3.사다리꼴면적 4.종료 ")
+        if select=="1":
+            circle()
+        elif select=="2":
+            rectangle()
+        elif select=="3":
+            sadari() 
+        elif select=="4":
+            return  
+        else:
+            print("쫌!!!")
+
+
+def main2(): 
+    myfunctions ={"1":circle, "2":rectangle, "3":sadari}
+    while True:
+        select = input("1.원의면적 2.사각형면적 3.사다리꼴면적 4.종료 ")
+        if select in myfunctions.keys() :
+            myfunctions[select]() #함수호출 
+        else:
+            return 
+        
+#main2()
 
 """
+문제2. 리스트를 받아가서 리스트안에 중복된 데이터를 제거하고 중복되지 않는 데이터 리스트만 
+      반환하기 
+
+문제3. myint 함수 문자열을 받아가서 정수로 바꾸어서 반환하기. "123"을 넣었을 경우에는 123을 
+반환하고 "123A" 잘못된 데이터를 입력하면 -1을 반환하자  
+"""       
+
+def duplicate_remove(aList):
+    temp = []
+    for i in aList:
+        if i not in temp:  #temp안에 존재안할때  
+            temp.append(i)
+    return temp     
+
+a = [4,3,5,8,1,2,56,4,1,2,8]
+b = duplicate_remove(a)
+print(b)
+
+
+def myint(s):
+    sum=0   # 123    1 2  => 1*10 + 2  => 12 3 => 12*10+3
+    for c in s:
+        if ord(c)<ord('0') or ord(c)>ord('9'):
+            return -1 
+        sum = sum*10 + ord(c)-ord('0')   #문자1 -> 숫자 1로 바꾸려면  '1'-'0'
+    return sum 
+
+print( myint("123") + myint("345") )
+
+#문제4. 문장을 받아가서 문자열 뒤집어서 보내는 함수 reverse 
+
+def reverse(s):
+    result="";
+    for i in range(len(s)-1, -1, -1):
+        result += s[i] 
+    return result 
+
+print( reverse("korea"))
+
 
