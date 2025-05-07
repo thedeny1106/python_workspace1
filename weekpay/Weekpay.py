@@ -11,6 +11,9 @@ class Weekpay:
     def output(self):
         print(f"{self.name} {self.work_time} {self.per_pay} {self.pay}")
 
-
-w1 = Weekpay("A")
-w1.output()
+#파이썬의 모듈들은 내장변수가 있다. __name__
+print( __name__ )  #이 모듈로 직접 실행하면 __main__이 들어온다 python Weekpay.py 
+#import 되서 실행되면 파일명이 전달된다 python WeekpayManager.py 
+if __name__ == "__main__":
+    w1 = Weekpay("A")
+    w1.output()
