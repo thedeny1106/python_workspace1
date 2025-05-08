@@ -59,9 +59,47 @@ class GameData:
     def printLog(self):
         print(f"컴퓨터:{self.computer} 사람:{self.person} 승부:{self.winner}")
 
+
+class Game:
+    titles1=["", "가위", "바위", "보"]
+    titles2 =["", "컴퓨터승", "사람승", "무승부"]
+
+    def __init__(self):
+        self.gameList = []  #game 정보를 저장한다 
+    
+    def printLog(self, g):
+        print(f"컴퓨터: {self.titles1[g.computer]}", end="\t")
+        print(f"사람: {self.titles1[g.person]}",   end="\t")
+        print(f"승부: {self.titles2[g.winner]}" )
+        
+
+    def start(self):
+        while True:
+            g = GameData()
+            g.gameStart()
+            #g.printLog()
+            self.printLog(g) 
+            self.gameList.append( g )
+
+            again=input("1.계속 0.종료? ")
+            if again != "1":
+                return 
+
+    def printResult(self):
+        print(f"{len(self.gameList)}번 수행함")
+        for g in self.gameList:
+            self.printLog(g)
+
+    def mainStart(self):
+        self.start()
+        self.printResult()
+
 if __name__ == "__main__":
-    g = GameData() #객체 생성
-    g.gameStart()  #g -> self로 전달된다다
-    g.printLog() 
+    # g = GameData() #객체 생성
+    # g.gameStart()  #g -> self로 전달된다다
+    # g.printLog() 
+    game = Game()
+    game.mainStart()
+
 
 
