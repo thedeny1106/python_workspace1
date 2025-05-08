@@ -22,12 +22,22 @@ class ScoreManager:
         print("--------")
         print("1. 추가  ")
         print("2. 출력  ")
-        print("3. 검색  ")
+        print("3. 검색  ") #이름
+        print("4. 수정  ") #이름
+        print("5. 삭제  ") #이름
+        print("6. 정렬  ") #총점 내림차순으로 
         print("0. 종료  ")
         print("--------")
         
     def append(self):
-        pass 
+        sc =  ScoreData() #객체 생성 
+        sc.name = input("이름 : ")
+        sc.kor = int(input("국어 : "))
+        sc.eng = int(input("영어 : "))
+        sc.mat = int(input("수학 : "))
+        sc.process()
+        self.scoreList.append(sc)
+
 
     def start(self):
         #함수주소를 배열에 저장하고 호출함 ,
