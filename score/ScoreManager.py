@@ -38,10 +38,33 @@ class ScoreManager:
         sc.process()
         self.scoreList.append(sc)
 
+    def search(self):
+        name = input("이름 : ")
+        #filter는 두번째 매개변수로 전달된 list를 받아서 
+        #for문 돌려서 첫번째 매개변수로 전달된 함수를 호출 
+        #람다 : 매개변수하나(scoreList에 저장된 객체 하나 )
+        #      반환은 True 또는 False 
+        # 매개변수 ScoreData객체 
+        #전체 실행하는게 아니라 실행준비상태임 for를 사용하거나 
+        #list로 둘러 쌓으면 list생성자가 호출되면서 filter가 모든 작업을
+        #완료한다. 
+        resultList = list(filter(lambda item: name in item.name, 
+                                self.scoreList))
+        #데이터가 없을 경우에 처리 len(resultList) 데이터 개수 반환
+        if len(resultList)==0:
+           print("찾으시는 데이터가 없습니다.")
+           return #else 사용하지 말고 함수종료 
+
+        #enumerate함수가 list 를 전달하면 index와 객체 tuple을 반환
+        for i, s in enumerate(resultList):
+            print(f"[{i}] ", end=" ")
+            s.print()
+
+
 
     def start(self):
         #함수주소를 배열에 저장하고 호출함 ,
-        funcList =[None, self.append, self.printAll]    
+        funcList =[None, self.append, self.printAll, self.search]    
         while True:
             self.menuDisplay()
             choice = int(input("선택 : "))
