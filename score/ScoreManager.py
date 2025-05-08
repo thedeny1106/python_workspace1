@@ -60,11 +60,66 @@ class ScoreManager:
             print(f"[{i}] ", end=" ")
             s.print()
 
+    def  modify(self):
+        name = input("수정할 이름 : ")
+        resultList = list(filter(lambda item: name in item.name, 
+                                self.scoreList))
+        #데이터가 없을 경우에 처리 len(resultList) 데이터 개수 반환
+        if len(resultList)==0:
+           print("찾으시는 데이터가 없습니다.")
+           return #else 사용하지 말고 함수종료 
 
+        #enumerate함수가 list 를 전달하면 index와 객체 tuple을 반환
+        for i, s in enumerate(resultList):
+            print(f"[{i}] ", end=" ")
+            s.print() 
+        sel = int(input("수정할 대상은(번호) "))
+        #수정할 대상의 참조를 가져온다 
+        item=self.resultList[sel]
+        item.name = input("이름 : ")
+        item.kor = int(input("국어 : "))
+        item.eng = int(input("영어 : "))
+        item.mat = int(input("수학 : "))
+        item.process() #다시 계산하기 
+    
+    def  delete(self):
+        name = input("삭제할 이름 : ")
+        resultList = list(filter(lambda item: name in item.name, 
+                                self.scoreList))
+        #데이터가 없을 경우에 처리 len(resultList) 데이터 개수 반환
+        if len(resultList)==0:
+           print("찾으시는 데이터가 없습니다.")
+           return #else 사용하지 말고 함수종료 
+
+        #enumerate함수가 list 를 전달하면 index와 객체 tuple을 반환
+        for i, s in enumerate(resultList):
+            print(f"[{i}] ", end=" ")
+            s.print() 
+        sel = int(input("삭제대상은? " ))
+        #remove 객체 참조를 직접 부여한다. 그 객체를 찾아서 삭제 
+        self.scoreList.remove(resultList[sel]) #-실제 대상삭제
+        #del resultList[sel] #삭제 -- 명단삭제
+    
+    def sort(self):
+        #원본 냅두고 정렬한 결과만 출력하기
+        #key 에 전달해야할 람다는 
+        #매개변수하나 반환값 정렬을 할수있는 데이터타입 
+        # > < 연산자가 가능한다 
+        #s1 = ScoreData()
+        #s2 = ScoreData()
+        #s1 > s2 - 
+        #파이썬이 제공하는 기본타입들 int, float, str, ...
+
+        resultList = sorted(self.scoreList, key=lambda item : item.total 
+               , reverse=True)
+        for i in resultList:
+            i.print() 
 
     def start(self):
         #함수주소를 배열에 저장하고 호출함 ,
-        funcList =[None, self.append, self.printAll, self.search]    
+        funcList =[None, self.append, self.printAll, 
+                   self.search, self.modify, 
+                   self.delete, self.sort]    
         while True:
             self.menuDisplay()
             choice = int(input("선택 : "))
@@ -79,4 +134,11 @@ class ScoreManager:
 if __name__ =="__main__":
     sm = ScoreManager()
     sm.start()
+
+
+
+
+
+
+
 
