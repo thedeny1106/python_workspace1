@@ -5,6 +5,7 @@ class Baseball:
         self.computer = [-1, -1, -1, -1] #아무값도 없다 
         self.person = [-1, -1, -1, -1] #아무값도 없다
         self.count=0 #몇번했는지를 저장하기 위한 변수 
+        self.personList=[]
     
     def init_computer(self):
         cnt=1 #랜덤값 3개를  추출해야 하는데 중복되면 안됨 
@@ -46,10 +47,12 @@ class Baseball:
             self.init_person()
             strike, ball, out = self.getResult()
             print(f"strike:{strike} bal:{ball} out:{out}")
+            self.personList.append( 
+                 {"person":[x for x in self.person], 
+                "strike":strike, "ball":ball, "out":out})
             if strike ==3:
                 flag=True 
-            else:
-                self.count+=1
+            self.count+=1
 
 
 if __name__ == "__main__":
@@ -65,4 +68,3 @@ if __name__ == "__main__":
 
 
 
-            
