@@ -54,7 +54,7 @@ if __name__ =="__main__":
     mgr = WeekPayManager()
     #mgr.output()
     #mgr.search()
-    mgr.modify()
+    mgr.modify()  # . 도트연산자 - 소유권을 의미한다. 
     mgr.output()
 
 
