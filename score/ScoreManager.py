@@ -1,15 +1,17 @@
 from ScoreData import ScoreData
+import pickle 
+
 #ScoreData.py 파일에서 ScoreData 클래스를 가져와라 
 
 class ScoreManager:
     def __init__(self): #생성자-파이썬에서는 변수도 만들고 
                         #첫 시작시 준비작업 
         self.scoreList = [
-            ScoreData(),
-            ScoreData("조승연", 90, 80, 90),
-            ScoreData("안세영", 80, 80, 70),
-            ScoreData("김연경", 90, 90, 90),
-            ScoreData("김연아", 100, 80, 100)
+            # ScoreData(),
+            # ScoreData("조승연", 90, 80, 90),
+            # ScoreData("안세영", 80, 80, 70),
+            # ScoreData("김연경", 90, 90, 90),
+            # ScoreData("김연아", 100, 80, 100)
         ]
     
     def printAll(self):
@@ -25,10 +27,22 @@ class ScoreManager:
         print("3. 검색  ") #이름
         print("4. 수정  ") #이름
         print("5. 삭제  ") #이름
-        print("6. 정렬  ") #총점 내림차순으로 
+        print("6. 정렬  ") #총점 내림차순으로
+        print("7. 저장  ")
+        print("8. 불러오기") 
         print("0. 종료  ")
         print("--------")
-        
+    
+    def save(self):
+        with open("score.bin", "wb") as f:
+            pickle.dump(self.scoreList, f)
+
+    def load(self):
+        with open("score.bin", "rb") as f:
+            self.scoreList = pickle.load(f)
+        self.printAll()
+
+
     def append(self):
         sc =  ScoreData() #객체 생성 
         sc.name = input("이름 : ")
@@ -119,7 +133,8 @@ class ScoreManager:
         #함수주소를 배열에 저장하고 호출함 ,
         funcList =[None, self.append, self.printAll, 
                    self.search, self.modify, 
-                   self.delete, self.sort]    
+                   self.delete, self.sort, 
+                   self.save,   self.load]    
         while True:
             self.menuDisplay()
             choice = int(input("선택 : "))

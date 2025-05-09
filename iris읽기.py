@@ -29,3 +29,4 @@ for i in range(0,4):
     print(f"{result[i]/count:.2f}", end="\t"),
 print()
 
+## mpg.csv파일 가져와서 실린더개수 8 6 4  종류별 카운트 하기 
