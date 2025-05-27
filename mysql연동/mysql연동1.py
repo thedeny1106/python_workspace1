@@ -6,7 +6,7 @@
 #3.연결끊기
 """
 -- 계정만들기`
--- locahost - 루프백주소(127.0.0.1)
+-- localhost - 루프백주소(127.0.0.1)
 -- 'user02'@'localhost' 로컬서만 접근가능한 
 -- 계정이다  
 create user 'user02'@'localhost'
