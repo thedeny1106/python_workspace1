@@ -5,6 +5,7 @@
 
 import pymysql 
 
+#추상성 - 클래스 내부구조 몰라도 사용하게 하는 성격 
 class Database:
     def __init__(self):
         self.db = pymysql.connect( 
