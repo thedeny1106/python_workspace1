@@ -5,6 +5,7 @@ import pymysql
 
 # PooledDB를 이용한 커넥션 풀 구성
 pool = PooledDB(
+    
     creator=pymysql,
     maxconnections=10,
     mincached=2,
